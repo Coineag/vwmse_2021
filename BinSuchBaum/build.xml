@@ -12,4 +12,54 @@
             </manifest>
         </jar>
     </target>
+    <target name="doc" description="Create JavaDoc">
+        <mkdir dir="doc"/>
+        <javadoc sourcepath="src"
+                 defaultexcludes="yes"
+                 destdir="doc"
+                 author="true"
+                 version="true"                 
+                 splitindex="true"
+                 nonavbar="true"
+                 windowtitle="BinSuchBaum Documentation">
+            <doctitle>
+                <![CDATA[<h1>BinSuchBaum</h1>]]>
+            </doctitle>
+            <bottom>
+                <![CDATA[Copyright 	&copy; Beate Gericke.<br/> <b>Please contact Beate Gericke in case of questions</b>]]>
+            </bottom>
+        </javadoc>
+    </target>
+    <target name="clean" description="remove intermediate files">
+        <delete dir="classes"/>
+        <delete dir="doc"/>
+        <delete file="BinSuchBaum.jar"/>
+        <delete file="jdepend-report.txt"/>
+        <delete file="jdepend-report.xml"/>
+    </target>
+
+<target name="jdepend-txt" depends="compile">
+
+  <jdepend outputfile="jdepend-report.txt">
+      <exclude name="java.*"/>
+      <exclude name="javax.*"/>
+      <classespath>
+        <pathelement location="classes" />
+      </classespath>
+      <classpath location="classes" />
+  </jdepend>
+
+</target>
+
+    <target name="jdepend-xml" depends="compile">
+
+  <jdepend format="xml" outputfile="jdepend-report.xml">
+      <exclude name="java.*"/>
+      <exclude name="javax.*"/>
+      <classespath>
+        <pathelement location="classes" />
+      </classespath>
+      <classpath location="classes" />
+  </jdepend>
+</target>
 </project>

@@ -1,4 +1,4 @@
-name: Java CI
+name: Java CI for BinSuchBaum
 
 on: [push]
 
@@ -8,10 +8,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: Build with Ant
-        run: ant -noinput -buildfile ./BinSuchBaum/build.xml
+          java-version: '17'
+          distribution: 'temurin'
+          architecture: x64
+      - name: Build BinSuchBaum with Ant
+        run: ant -noinput -buildfile ./Abgaben/Aufgabe_6_Buildmanagement/BinSuchBaum/build.xml
+      - name: Run JDepend on Build
+        run: ant -noinput -buildfile ./Abgaben/Aufgabe_6_Buildmanagement/BinSuchBaum/build.xml jdepend-xml
+      - name: Create JavaDoc for Projekt
+        run: ant -noinput -buildfile ./Abgaben/Aufgabe_6_Buildmanagement/BinSuchBaum/build.xml doc
