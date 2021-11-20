@@ -1,2 +1,9 @@
 *.exe
 .~*.docx*
+
+BinSuchBaum/*.iml
+BinSuchBaum/*.ipr
+BinSuchBaum/*.iws
+BinSuchBaum/*.jar
+BinSuchBaum/classes
+BinSuchBaum/doc
