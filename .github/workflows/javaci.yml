@@ -15,8 +15,8 @@ jobs:
           distribution: 'temurin'
           architecture: x64
       - name: Build BinSuchBaum with Ant
-        run: ant -noinput -buildfile ./Abgaben/Aufgabe_6_Buildmanagement/BinSuchBaum/build.xml
+        run: ant -noinput -buildfile ./BinSuchBaum/build.xml
       - name: Run JDepend on Build
-        run: ant -noinput -buildfile ./Abgaben/Aufgabe_6_Buildmanagement/BinSuchBaum/build.xml jdepend-xml
+        run: ant -noinput -buildfile ./BinSuchBaum/build.xml jdepend-xml
       - name: Create JavaDoc for Projekt
-        run: ant -noinput -buildfile ./Abgaben/Aufgabe_6_Buildmanagement/BinSuchBaum/build.xml doc
+        run: ant -noinput -buildfile ./BinSuchBaum/build.xml doc
