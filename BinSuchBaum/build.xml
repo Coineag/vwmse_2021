@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<project name="BinSuchBaum" default="compile">
+    <target name="compile" description="compile Java source to class files">
+        <mkdir dir="classes"/>
+        <javac includeantruntime="false" srcdir="src" destdir="classes"/>
+    </target>
+    <target name="jar" depends="compile" description="create a Jar file">
+        <jar destfile="BinSuchBaum.jar">
+            <fileset dir="classes" includes="**/*.class"/>
+            <manifest>
+                <attribute name="Main-Class" value="wc"/>
+            </manifest>
+        </jar>
+    </target>
+</project>
